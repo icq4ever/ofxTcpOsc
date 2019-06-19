@@ -6,7 +6,7 @@
 const string host = "localhost";
 const int port = 50000;
 
-class testApp : public ofBaseApp{
+class ofApp : public ofBaseApp{
 	public:
 		void setup();
 		void update();
