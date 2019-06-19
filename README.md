@@ -16,26 +16,26 @@ Usage
 
 ### 1. Sender
 
-testApp.h
+ofApp.h
 ```cpp
 #include "ofxTcpOsc.h"
 
 const string host = "localhost";
 const int port = 50000;
 
-class testApp : public ofBaseApp{
+class ofApp : public ofBaseApp{
 	// definitions
 	ofxTcpOscSender sender;
 }
 ```
 
-testApp.cpp
+ofApp.cpp
 ```cpp
-void testApp::setup() {
+void ofApp::setup() {
     sender.setup(host, port);
 }
 
-void testApp::sendMessage {
+void ofApp::sendMessage {
     ofxTcpOscMessage m;
     m.setAddress("/testAddress");
     m.addStringArg("test message");
@@ -50,26 +50,26 @@ void testApp::sendMessage {
 
 ### 2. Receiver
 
-testApp.h
+ofApp.h
 ```cpp
 #include "ofxTcpOsc.h"
 
 const int port = 50000;
 
-class testApp : public ofBaseApp{
+class ofApp : public ofBaseApp{
     // definitions
     ofxTcpOscReceiver receiver;
 }
 
 ```
 
-testApp.cpp
+ofApp.cpp
 ```cpp
-void testApp::setup() {
+void ofApp::setup() {
     receiver.setup(port);
 }
 
-void testApp::update() {
+void ofApp::update() {
     while (receiver.hasWaitingMessages()) {
         ofxTcpOscMessage m;
         receiver.getNextMessage(&m);
